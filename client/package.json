@@ -1,6 +1,9 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "description": "A Simple Token Factory",
+  "author": "criptoeconomiaorg@protonmail.com",
+
   "private": true,
   "dependencies": {
     "react": "16.11.0",
@@ -8,11 +11,14 @@
     "react-scripts": "3.2.0",
     "web3": "1.2.2"
   },
+  "homepage": "https://criptoeconomia.github.io/TokenFactory",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
