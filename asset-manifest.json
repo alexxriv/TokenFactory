@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TokenFactory/static/css/main.7a6fe2f4.chunk.css",
-    "main.js": "/TokenFactory/static/js/main.79c94aa9.chunk.js",
-    "main.js.map": "/TokenFactory/static/js/main.79c94aa9.chunk.js.map",
+    "main.js": "/TokenFactory/static/js/main.f972fb42.chunk.js",
+    "main.js.map": "/TokenFactory/static/js/main.f972fb42.chunk.js.map",
     "runtime-main.js": "/TokenFactory/static/js/runtime-main.da9181bc.js",
     "runtime-main.js.map": "/TokenFactory/static/js/runtime-main.da9181bc.js.map",
     "static/css/2.a5f06b7f.chunk.css": "/TokenFactory/static/css/2.a5f06b7f.chunk.css",
     "static/js/2.a95ed4b8.chunk.js": "/TokenFactory/static/js/2.a95ed4b8.chunk.js",
     "static/js/2.a95ed4b8.chunk.js.map": "/TokenFactory/static/js/2.a95ed4b8.chunk.js.map",
     "index.html": "/TokenFactory/index.html",
-    "precache-manifest.ec3291ccef8e122e7a8857be003b5008.js": "/TokenFactory/precache-manifest.ec3291ccef8e122e7a8857be003b5008.js",
+    "precache-manifest.2f51ff67c03e83143e7a9833a0924da0.js": "/TokenFactory/precache-manifest.2f51ff67c03e83143e7a9833a0924da0.js",
     "service-worker.js": "/TokenFactory/service-worker.js",
     "static/css/2.a5f06b7f.chunk.css.map": "/TokenFactory/static/css/2.a5f06b7f.chunk.css.map",
     "static/css/main.7a6fe2f4.chunk.css.map": "/TokenFactory/static/css/main.7a6fe2f4.chunk.css.map"
@@ -19,6 +19,6 @@
     "static/css/2.a5f06b7f.chunk.css",
     "static/js/2.a95ed4b8.chunk.js",
     "static/css/main.7a6fe2f4.chunk.css",
-    "static/js/main.79c94aa9.chunk.js"
+    "static/js/main.f972fb42.chunk.js"
   ]
 }
