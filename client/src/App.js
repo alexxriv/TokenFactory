@@ -72,7 +72,7 @@ class App extends Component {
       value: 100, gas: 6700000}).on('transactionHash', (hash) => {
     this.setState({ loading: false })})
     await this.state.factory.getPastEvents(
-      'TokenCreated',
+      'AllEvents',
       {
         fromBlock: 0,
         toBlock: 'latest'
