@@ -69,7 +69,7 @@ class App extends Component {
       _burnable,
       _mintable
     ).send({from: this.state.account,
-      value: 100, gas: 6700000}).on('transactionHash', (hash) => {
+      value: "30000000000000000"}).on('transactionHash', (hash) => {
     this.setState({ loading: false })})
     await this.state.factory.getPastEvents(
       'AllEvents',
