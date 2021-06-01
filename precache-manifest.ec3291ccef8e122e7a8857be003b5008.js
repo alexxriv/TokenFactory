@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "66267dc9ebb15fe400c25581b15052ef",
+    "revision": "97f9a2c96b7302dbef739f51a8fabf75",
     "url": "/TokenFactory/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TokenFactory/static/css/2.a5f06b7f.chunk.css"
   },
   {
-    "revision": "0973a5485d84487a1730",
+    "revision": "14fc8219960156026f4c",
     "url": "/TokenFactory/static/css/main.7a6fe2f4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TokenFactory/static/js/2.a95ed4b8.chunk.js"
   },
   {
-    "revision": "0973a5485d84487a1730",
-    "url": "/TokenFactory/static/js/main.1ad9b0fe.chunk.js"
+    "revision": "14fc8219960156026f4c",
+    "url": "/TokenFactory/static/js/main.79c94aa9.chunk.js"
   },
   {
     "revision": "290b9d1979e8e28d6567",
