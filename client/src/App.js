@@ -58,7 +58,7 @@ class App extends Component {
   }
 
 
-  deployNewToken = async (_name, _symbol, _totalSupply) => {
+  deployNewToken = async (_name, _symbol, _totalSupply, _burnable, _mintable) => {
     this.setState({ loading: true })
     _totalSupply = _totalSupply.toString()
     _totalSupply= _totalSupply.concat('000000000000000000')
@@ -66,6 +66,8 @@ class App extends Component {
       _name,
       _symbol,
       _totalSupply,
+      _burnable,
+      _mintable
     ).send({from: this.state.account,
       value: 100, gas: 6700000}).on('transactionHash', (hash) => {
     this.setState({ loading: false })})
