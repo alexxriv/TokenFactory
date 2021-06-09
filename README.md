@@ -17,4 +17,6 @@ Total Supply of your token will be minted to your address.
 Token Contract Address will be displayed on screen, you can copy/paste it into Binance Scan to see
 more details about your token.
 
+Tools used to create this project: Truffle, React, NPM and Solidity
+
 
