@@ -1,3 +1,4 @@
+
 const FACTORY = artifacts.require("./Factory.sol");
 const TOKEN = artifacts.require("./Token.sol");
 
@@ -15,7 +16,7 @@ contract("Factory", async accounts => {
       "DEMO",
       1000000, true,true,
       {from: accounts[4],
-      value: "100"}
+      value: "30000000000000000"}
     );
     let TokenInstance = await TOKEN.at(Token.logs[0].args.tokenAddress);
     let balance = await TokenInstance.balanceOf.call(accounts[4]);
@@ -55,20 +56,24 @@ contract("Factory", async accounts => {
   it("Factory should have eth balance", async () => {
 
     let balance2 = await web3.eth.getBalance(FACTORY.address)
-    assert.equal(balance2.toString(), "120");
+    assert.equal(balance2.toString(), "30000000000000020");
 
   });
 
 
   it("Should withdraw balance of contract to owner", async () => {
+    await Factory.changePrice("10", {from: accounts[0]})
+  
     await Factory.withdrawFunds({from: accounts[0]})
     let balance2 = await web3.eth.getBalance(FACTORY.address)
     assert.equal(balance2.toString(), "0");
 
   });
 
+
+
   it("Should burn and mint tokens correctly", async () => {
-    await Factory.changePrice("10", {from: accounts[0]})
+
     Token = await Factory.deployNewToken(
       "Demo Token",
       "DEMO",
@@ -85,6 +90,16 @@ contract("Factory", async accounts => {
     await TokenInstance.mint("100000000");
     balance = await TokenInstance.balanceOf.call(accounts[0]);
     assert.equal(balance.toString(), "100000000")
+  });
+
+  it("Should NOT withdraw balance of contract to other address", async () => {
+
+    try{ 
+      Factory.withdrawFunds({from: accounts[4]})
+  } catch{
+    let balance = await web3.eth.getBalance(FACTORY.address)
+    assert.equal(balance, "10")
+  }
   });
 
   it("Should not burn and mint tokens correctly", async () => {

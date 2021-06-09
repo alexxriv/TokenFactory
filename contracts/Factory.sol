@@ -14,9 +14,10 @@ contract Factory{
     }
 
     uint price;
+    address payable owner;
 
     constructor(uint initialPrice) public { price = initialPrice; owner = msg.sender; }
-    address payable owner;
+
     
     modifier onlyOwner {
         require(

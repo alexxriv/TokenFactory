@@ -5,6 +5,7 @@ import Main from './Main'
 import './App.css'
 import Factory from "./contracts/Factory.json";
 import Token from './Token'
+import Guide from './Guide'
 
 class App extends Component {
 
@@ -24,19 +25,20 @@ class App extends Component {
       const networkId = await web3.eth.net.getId()
      
 
-      //Load DaiToken
+      //Load Factory Contract
       // take token json from imported files, get networkId, that will give us
       // the address 
       const factoryData = Factory.networks[networkId]
-      if(factoryData) { //create web3 version of token if it exists
-         //notice that dai and Dai are different
+      if(factoryData) { //create web3 version of factory if it exists
+         
          const factory = new web3.eth.Contract(Factory.abi, factoryData.address)
          this.setState({factory})
+         this.setState({ loadingpg: false })
 
       } else {
          window.alert('factory contract not deployed to detected network')
       }
-      this.setState({ loading: false })
+
    
 
     }
@@ -69,8 +71,9 @@ class App extends Component {
       _burnable,
       _mintable
     ).send({from: this.state.account,
-      value: "30000000000000000"}).on('transactionHash', (hash) => {
-    this.setState({ loading: false })})
+      value: "200000000000000000"}).on('transactionHash', (hash) => {
+    this.setState({ loading: true })})
+    this.setState({ loading: true })
     await this.state.factory.getPastEvents(
       'AllEvents',
       {
@@ -83,6 +86,8 @@ class App extends Component {
         this.setState({token: TOKEN})
       }
     )
+    this.setState({ loading: false })
+    this.setState({newToken: true})
   }
 
 
@@ -96,16 +101,43 @@ class App extends Component {
     this.state = {
       account: '0x0',
       factory: {},
-      loading: true,
+      loading: false,
       token: "",
+      loadingpg: true,
+      newToken: false,
     }
   }
 
   render() {
-     let content = <Main
+     let content
+     if (!this.state.loading && !this.state.loadingpg && !this.state.newToken){
+     content = <Main
       deployNewToken = {this.deployNewToken}
       token = {this.state.token}
         />
+     } else if(this.state.newToken) {
+       content = <Token token={this.state.token}/>
+     }
+     
+     else if(this.state.loading){
+      content = <p id = "loader" className= "text-center"> Loading... <br/>
+      <div className="alert alert-warning">
+      <strong>Warning!</strong> DO NOT CHANGE TRANSACTION VALUE OR TOKEN WONT BE DEPLOYED
+      </div>
+      <div className="alert alert-warning">
+      <strong>ADVERTENCIA:</strong> NO CAMBIES EL VALOR DE LA TRANSACCIÓN, EL TOKEN NO SERÁ GENERADO 
+      </div>
+      <div className="alert alert-info">
+          <strong>Has click en confirmar para crear to Token Personalizado!</strong> <br/>
+        </div>
+     
+        <div className="alert alert-info">
+          <strong>Creando Token...</strong> <br/>
+        </div>
+      </p>
+     } else {
+      content= <Guide/>
+     }
     return (
       <div>
         <Navbar account={this.state.account} />
@@ -124,7 +156,7 @@ class App extends Component {
 
               </div>
             </main>
-            <Token token={this.state.token}/>
+ 
           </div>
         </div>
       </div>
